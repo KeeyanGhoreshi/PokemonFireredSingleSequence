@@ -1,5 +1,38 @@
 # Overview
 
+This repository contains a list of inputs that theoretically will beat >99% of all Pokemon Firered games.  There is no RNG manipulation involved, and there are no frame-perfect inputs required.  The sequence of inputs is static, it does not require any information from the game.  The intention of this list is to enable beating the game with no visuals/audio, or "blind and deaf".  
+
+# Contents
+
+The full list of inputs is in `fullSequence/inputs.txt`.  This file is technically untested and is a decompilation of the lua code which involves modularization of specific tasks, like the Doug Cycle.  Theoretically the execution of either should be identical.  
+
+`src/main` contains the main lua files usable with [BizHawk](https://tasvideos.org/Bizhawk).  The files are separated into 9 individual sections, one for each badge and an additional one for the Elite Four.  
+
+The files contain a simple list of commands, with the format `[<command>, <frames>]`, where the first value is the button to press and the second is the number of frames to hold the button for.  The raw text list uses the following commands:
+
+| Command | Description |
+| ------------- | ------------- |
+| a  | A |
+| b  | B |
+| u  | Up |
+| d  | Down |
+| l  | Left |
+| r  | Right |
+| st  | Start |
+| ub  | Up + B |
+| db  | Down + B |
+| lb  | Left + B |
+| rb  | Right + B |
+| w  | Wait |
+
+Other buttons, like select, L, and R, are unused. 
+
+In the Lua files, the same format is used, with additional commands that represent a subset of buttons that can be reused.  For example, `grass_cycle` performs the necessary inputs to travel through one patch of grass, and can be used in the same way other commands are.  In this case, the format is slightly different, with the second value being the number of times to repeat the routine.  For example, `['doug_cycle_1', 150]` would indicate to do the `doug_cycle_1` command 150 times in a row.
+
+Additionally, there is a distinction between the directional commands.  The `u`, `d`, `l`, and `r` commands are routines, and are shorthand for a single press of the button followed by 16 frames of waiting.  This is shorthand for moving around the overworld, for example moving up 5 tiles could be denoted as `['u', 5]`, where the 5 is not the number of frames to hold the button but the number of times to press it.  To denote holding a button for a certain number of frames, the commands `uf`, `df`, `lf`, and `rf` are used.  
+
+# More Info
+
 This project is the result of watching Pokemon challenge runs and wondering if many of the "blind" challenges could be done without the sound or a third party, i.e. a person or group giving directions.  At its core, beating a game *consistenly* with no sound or visuals (or haptic feedback) is the same as stating:
 
 "This game has a knowable solution inpedendent of all in-game events and information."
@@ -32,8 +65,6 @@ This same principle can be applied to most random events.  So long as the soluti
 
 Even if random events cause the games state to diverge, so long as the sequence of inputs eventually causes those states to converge, it is valid.  Diverging states, however, could split further, and fractal off exponentially, so great care is taken not to allow too much divergence.  
 
-# Contents
+In the end, Pokemon is not a difficult game, and despite a rocky beginning, access to the daycare trivializes the majority of the rest of the game.  As an extra challenge, I tried to keep the overall level of my team as low as possible, though I didn't spend too much time optimizing everything.  Major improvements could be made in the runtime by adjusting the team's composition, level, and strategy.  
 
-This repository contains the full list of inputs with no bells and whistles or comments or routines in `fullSequence/inputs.txt`.  This file is untested and is a decompilation of the lua code which involves modularization of specific tasks, like the Doug Cycle.
-
-`src/main` contains the main lua files usable with [BizHawk](https://tasvideos.org/Bizhawk).  The files are separated into 9 individual sections, one for each badge and an additional one for the Elite Four
+In my case, I made sparing use of items and berries, not realizing their potential until very late into the game.  Heavy optimizations could be made by taking advantage of berries to counter status effects, allowing more leeway in fights and a lower overall level.  This, in turn, means less time spent in the daycare, which means a faster overall time.  The optimization of late game fights was not my primary objective, however, though it will likely be the focus if I return to this project to attempt completion of the game's after-credits content.  
