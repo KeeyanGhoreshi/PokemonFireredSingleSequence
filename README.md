@@ -1,6 +1,6 @@
 # Overview
 
-This repository contains a list of inputs that theoretically will beat >99% of all Pokemon Firered games.  There is no RNG manipulation involved, and there are no frame-perfect inputs required.  The sequence of inputs is static, it does not require any information from the game.  The intention of this list is to enable beating the game with no visuals/audio, or "blind and deaf".  
+This repository contains a list of inputs that theoretically will beat >99% of all Pokémon Firered games.  There is no RNG manipulation involved, and there are no frame-perfect inputs required.  The sequence of inputs is static, it does not require any information from the game.  The intention of this list is to enable beating the game with no visuals/audio, or "blind and deaf".  
 
 # Contents
 
@@ -29,7 +29,17 @@ Other buttons, like select, L, and R, are unused.
 
 In the Lua files, the same format is used, with additional commands that represent a subset of buttons that can be reused.  For example, `grass_cycle` performs the necessary inputs to travel through one patch of grass, and can be used in the same way other commands are.  In this case, the format is slightly different, with the second value being the number of times to repeat the routine.  For example, `['doug_cycle_1', 150]` would indicate to do the `doug_cycle_1` command 150 times in a row.
 
-Additionally, there is a distinction between the directional commands.  The `u`, `d`, `l`, and `r` commands are routines, and are shorthand for a single press of the button followed by 16 frames of waiting.  This is shorthand for moving around the overworld, for example moving up 5 tiles could be denoted as `['u', 5]`, where the 5 is not the number of frames to hold the button but the number of times to press it.  To denote holding a button for a certain number of frames, the commands `uf`, `df`, `lf`, and `rf` are used.  
+Additionally, there is a distinction between the directional commands.  The `u`, `d`, `l`, and `r` commands are routines in the Lua code, and are shorthand for a single 5 frame press of the button followed by 16 frames of waiting.  This is for moving around the overworld, for example moving up 5 tiles could be denoted as `['u', 5]`, where the 5 is not the number of frames to hold the button but the number of times to press it.  This routine allows a single walk cycle to complete, making navigation of the overworld much easier to write and understand.  To denote holding a directional button for a certain number of frames, the commands `uf`, `df`, `lf`, and `rf` are used.  
+
+Note that none of the inputs are dependent on their exact timing.
+
+# Notes
+
+- At some points in the list the frame commands `uf`/`df`/`lf`/`rf` are used where it really should be the routines for walking `u`/`d`/`l`/`r`.  This was due to some experimentation at the early stages of the project with the method of recording inputs.  Almost all inputs were written by hand.  
+
+- There are various unnecessary inputs that could be removed, but ultimately they don't affect the game, just add some extra time to the playthrough.  
+
+- There is a minor chance of failure at the beginning of the game due to inability to run away from abnormally fast wild pokemon.  This accounts for nearly all failures.  There are two other instances where it is possible for the sequence of inputs to fail, but both are extremely unlikely.
 
 # More Info
 
