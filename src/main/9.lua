@@ -968,7 +968,123 @@ a = {
 -- eggboy has 205 health
 -- we can't one shot him with any available moves
 -- he knows sleep powder/giga drain/light screen, which all mess with us
-
+{'press_b', 7},
+{'w', 540},
+-- with black glasses on we can deal between 95-100% of exegg's health
+-- if we have a nature that gives us -SpA
+-- if we don't have a nature that gives us -SpA, exeggutor faints
+-- we don't actually have blackglasses on (it doesn't matter) thanks to chesto
+{'a', 15},
+{'u', 1},
+{'r', 1},
+{'a', 15}, -- use bite
+{'w', 1200}, -- wait for exegg to make a move
+-- scenario 1: exeggutor faints
+    -- jolteon will actually level up, giving us some leeway
+-- scenario 2: exeggutor doesn't faint
+    -- scenario a: used egg bomb
+    -- scenario b: used light screen
+    -- scenario c: used sleep powder
+    -- scenario d: flinched
+-- bottom line: we're either on a fainted prompt, or back to the battle menu
+-- jolteon can't die from a crit egg bomb (has 130 health, egg bomb maxes at 118)
+-- CHESTO berry comes in clutch, keeps us from being slept
+-- exeggutor is either dead or low enough that he will be full restored
+-- we can spam shadow ball now
+{'a', 15},
+{'l', 1},
+{'d', 1},
+{'a', 15}, -- use shadow ball
+-- rival has a max of 4 full restores, so we only have to do this 5 times
+-- I'm actually pretty sure he'll only use a full restore if he will have enough
+-- for the number of pokemon left
+-- so he'd only use 3 full restores max here, but I didn't really check the code
+-- to make sure, so we go 5 times to be safe
+{'w', 1400}, -- rival uses full restore
+{'press_a', 2}, -- shadow ball
+{'w', 1400}, 
+-- there are only 2 possibilities, either previous shadow ball brought
+-- exeggutor to <75% health and rival uses another full restore this turn
+-- or it didnt and at worst exeggutor is sitting at ~49% health
+-- shadow ball will either KO this turn, or rival will stall
+-- another turn with another full restore
+-- exeggutor can't repond with an attack either way
+{'press_a', 2},
+{'w', 1400},
+{'press_a', 2},
+{'w', 1400},
+{'press_a', 2},
+{'w', 1400},
+{'press_a', 2}, -- exeggutor dies for sure
+{'w', 1400},
+-- we potentially have 12 health left on jolteon 
+-- ruh roh
+{'press_a', 15}, -- get to pokemon switch menu
+-- if exeggutor used light screen, we are at least
+-- 2 turns deep into its duration
+-- we only have to stall for 3 turns 
+{'d', 3}, -- scroll to CANCEL or Gyarados 
+{'a', 15}, -- click cancel or on gyarados
+{'d', 3}, -- gyarados on shift, regular off menu
+{'a', 15}, -- cancel/click gyarados
+{'a', 15}, -- click gyarados/shift gyarados
+{'a', 15}, -- both gyarados's shifting out now
+-- convergance 
+{'w', 880}, -- wait for intimidate 
+-- TURN 2 OF LIGHT SCREEN
+{'r', 1}, -- to bag
+{'a', 15},
+{'w', 90},
+{'l', 3},
+{'w', 30},
+{'df', 120},
+{'u', 2}, -- go to full res
+{'a', 15},
+{'a', 15},
+{'w', 180},
+{'d', 3},
+{'a', 15},
+{'w', 330},
+{'press_b', 1}, -- back to fight menu in scenario 1, bag menu in scenario 2
+-- -- blastoise does something... doesn't really matter
+-- we need to stall scenario 1 while we catch up scenario 2
+{'w', 900}, -- wait for blastoise
+{'r', 1},
+{'d', 1}, -- go to "run" option
+{'press_b', 4}, -- back to fight menu in scenario 2
+{'l', 1}, -- to fight option
+{'a', 15}, -- open fight menu in scenario 2, stall scenario 2 by trying to run
+{'r', 1},
+{'d', 1},
+{'a', 15}, -- use splash
+{'w', 1300}, -- wait for move to be over
+{'press_b', 5}, 
+{'u', 1},
+{'l', 1}, -- resynced!
+-- TURN 3 OF LIGHT SCREEN
+{'w', 90},
+-- gyarados might be alive still
+{'a', 15},
+{'r', 1},
+{'d', 1},
+{'a', 15}, -- use splash
+{'w', 1300},
+-- TURN 4 OF LIGHT SCREEN
+-- gyarados might've died here
+{'d', 1}, -- down to pokemon
+{'press_a', 12}, -- to switch screen
+{'d', 3}, -- scroll to CANCEL or jolteon 
+{'a', 15}, -- click cancel or on jolteon
+{'d', 3}, -- jolteon on shift, regular off menu
+{'a', 15}, -- cancel/click jolteon
+{'a', 15}, -- click jolteon/shift jolteon
+{'a', 15}, -- both jolteons shifting out now
+{'w', 1300}, -- tank a hydro pump
+-- TURN 5, LIGHT SCREEN ENDS
+{'a', 15},
+{'a', 15}, -- use thunderbolt, GG
+{'press_b', 50},
+{'press_b', 90} -- WE'RE FREE 
 }
 
 b = {
@@ -1363,11 +1479,11 @@ e = {
     -- eggboy has 205 health
     -- we can't one shot him with any available moves
     -- he knows sleep powder/giga drain/light screen, which all mess with us
-    --  {'press_b', 7},
-    --     {'w', 540},
-        -- -- with black glasses on we can deal between 95-100% of exegg's health
-        -- -- if we have a nature that gives us -SpA
-        -- -- if we don't have a nature that gives us -SpA, exeggutor faints
+     {'press_b', 7},
+        {'w', 540},
+        -- with black glasses on we can deal between 95-100% of exegg's health
+        -- if we have a nature that gives us -SpA
+        -- if we don't have a nature that gives us -SpA, exeggutor faints
         {'a', 15},
         {'u', 1},
         {'r', 1},
@@ -1513,39 +1629,6 @@ e2 = {
 -- --     end
 -- --     client.pause_av()
 -- end
-client.pause_av()
-savestate.loadslot(1)
-randomFactor = math.random(1,2000)
-console.log(randomFactor)
-for i = 1,312 do
-    emu.frameadvance()
-end
 client.unpause_av()
-m.executeOrders(e)
+m.executeOrders(a)
 client.pause_av()
--- savestate.loadslot(7)
--- -- randomFactor = math.random(1,2000)
--- console.log(randomFactor)
--- for i = 1,1704 do
---     emu.frameadvance()
--- end
--- client.unpause_av()
--- m.executeOrders(a)
--- client.pause_av()
--- for j = 15,900 do
---     savestate.loadslot(2)
---     randomFactor = math.random(1,2000)
---     console.log(j)
---     for i = 1,j do
---         emu.frameadvance()
---     end
---     client.unpause_av()
---     m.executeOrders(e2)
---     local ally = 0x02024284
---     chp = memory.read_u8(ally+86)
---     if(chp < 60 ) then
---         console.log("we were crit")
---     end
-
--- --     client.pause_av()
--- end

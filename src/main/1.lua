@@ -1396,7 +1396,7 @@ a = {
     {'doug_cycle_1', 16}, -- (1257/2535) brings us to (2505/2535), about to evolve
     {'doug_cycle_1', 26}, -- (2505/4575) -> (4533/4575) about to learn smokescreen
     {'doug_cycle_2', 2}, -- avoid learning smokescreen (4689/11735)
-    {'doug_cycle_3', 90}, -- holy fuck (11709/11735)
+    {'doug_cycle_3', 90}, -- holy frick (11709/11735)
     {'doug_cycle_2', 2},  -- avoid learning scary face (11865/24294)
     {'doug_cycle_4', 159}, -- god have mercy (24267/24294)
     {'doug_cycle_5', 1}, -- learn flamethrower and evolve

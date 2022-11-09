@@ -1,5 +1,4 @@
 local movement = {}
-drawButtons = dbtn()
 reset_start = {
     {'w', 60},
     {'s', 15},
@@ -67,14 +66,12 @@ end
 
 function movement.a(frames)
     press = frames or 1
-    drawButtons.addToList("a", press)
     movement.waitFrames(press, setJoypad, {A=true})
     joypad.set({A=false})
     advance()
 end
 function movement.b(frames)
     press = frames or 1
-    drawButtons.addToList("b", press)
 
     movement.waitFrames(press, setJoypad, {B=true})
     joypad.set({B=false})
@@ -82,7 +79,6 @@ function movement.b(frames)
 end
 function movement.s(frames)
     press = frames or 3
-    drawButtons.addToList("st", press)
 
     movement.waitFrames(press, setJoypad, {Start=true})
     joypad.set({Start=false})
@@ -98,7 +94,6 @@ end
 
 function movement.r(frames)
     press = frames or 1
-    drawButtons.addToList("r", press)
     movement.waitFrames(press, setJoypad, {Right=true})
     joypad.set({Right=false})
     advance()
@@ -106,7 +101,6 @@ end
 
 function movement.u(frames)
     press = frames or 1
-    drawButtons.addToList("u", press)
 
     movement.waitFrames(press, setJoypad, {Up=true})
     joypad.set({Up=false})
@@ -115,7 +109,6 @@ end
 
 function movement.l(frames)
     press = frames or 1
-    drawButtons.addToList("l", press)
 
     movement.waitFrames(press, setJoypad, {Left=true})
     joypad.set({Left=false})
@@ -124,7 +117,6 @@ end
 
 function movement.d(frames)
     press = frames or 1
-    drawButtons.addToList("d", press)
     movement.waitFrames(press, setJoypad, {Down=true})
     joypad.set({Down=false})
     advance()
@@ -132,7 +124,6 @@ end
 
 function movement.rf(frames)
     press = frames or 1
-    drawButtons.addToList("r", press)
 
     movement.waitFrames(press, setJoypad, {Right=true})
     joypad.set({Right=false})
@@ -141,7 +132,6 @@ end
 
 function movement.uf(frames)
     press = frames or 1
-    drawButtons.addToList("u", press)
 
     movement.waitFrames(press, setJoypad, {Up=true})
     joypad.set({Up=false})
@@ -150,7 +140,6 @@ end
 
 function movement.lf(frames)
     press = frames or 1
-    drawButtons.addToList("l", press)
 
     movement.waitFrames(press, setJoypad, {Left=true})
     joypad.set({Left=false})
@@ -159,7 +148,6 @@ end
 
 function movement.df(frames)
     press = frames or 1
-    drawButtons.addToList("d", press)
 
     movement.waitFrames(press, setJoypad, {Down=true})
     joypad.set({Down=false})
@@ -168,16 +156,12 @@ end
 
 function movement.runU(frames)
     press = frames or 1
-    drawButtons.addToList("u", press)
-    drawButtons.addToList("b", press)
     movement.waitFrames(press, setJoypad, {Up=true, B=true})
     joypad.set({Up=false, B=false})
     advance()
 end
 function movement.runD(frames)
     press = frames or 1
-    drawButtons.addToList("d", press)
-    drawButtons.addToList("b", press)
     movement.waitFrames(press, setJoypad, {Down=true, B=true})
     joypad.set({Down=false, B=false})
     advance()
@@ -185,8 +169,6 @@ end
 
 function movement.runR(frames)
     press = frames or 1
-    drawButtons.addToList("r", press)
-    drawButtons.addToList("b", press)
     movement.waitFrames(press, setJoypad, {Right=true, B=true})
     joypad.set({Right=false, B=false})
     advance()
@@ -194,8 +176,6 @@ end
 
 function movement.runL(frames)
     press = frames or 1
-    drawButtons.addToList("l", press)
-    drawButtons.addToList("b", press)
     movement.waitFrames(press, setJoypad, {Left=true, B=true})
     joypad.set({Left=false, B=false})
     advance()
