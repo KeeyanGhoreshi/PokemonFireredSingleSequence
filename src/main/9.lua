@@ -1616,5 +1616,5 @@ m.executeOrders(a)
 local info = debug.getinfo(1, "S")
 local folderName = info.what
 local nextScript = num + 1 
-savestate.save(string.format("./States/Gym%dFinished.State", num))
-print(string.format("Gym %d has been finished. Making savestate: '%s/States/Gym%dFinished.State'. To continue from here load the state and run %d.lua.", num, folderName, num, nextScript))
+savestate.save("./States/GameFinished.State")
+print(string.format("The elite 4 has been Beaten! Making savestate: '%s/States/GameFinished.State'.",  folderName))
