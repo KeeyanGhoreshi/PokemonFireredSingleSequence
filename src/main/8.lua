@@ -1,4 +1,3 @@
-console.clear()
 package.path = "./main/?.lua;"
 movement = loadfile('movement.lua')
 m = movement()
