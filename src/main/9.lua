@@ -1608,28 +1608,8 @@ e2 = {
     {'press_b', 50},
     {'press_b', 50},
 }
---445 xtremeCrit
---1704 eggbomb crit
--- for i = 1,100 do
---     savestate.loadslot(1)
---     client.pause_av()
 
---     randomFactor = math.random(1,2000)
---     console.log(randomFactor)
---     for i = 1,randomFactor do
---         emu.frameadvance()
---     end
---     client.unpause_av()
---     m.executeOrders(e2)
--- --     local ally = 0x02024284      
--- --     data = pp.getData()
--- --     lvl = memory.read_u8(ally+86)
--- --     console.log(data[1])
--- --     if data[1] < 5 then
--- --         console.log("GIGA DRAIN :OOOO")
--- --     end
--- --     client.pause_av()
--- end
-client.unpause_av()
+
 m.executeOrders(a)
-client.pause_av()
+
+
