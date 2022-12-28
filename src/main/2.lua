@@ -1,6 +1,7 @@
 package.path = "./main/?.lua;"
 movement = loadfile('movement.lua')
 m = movement()
+local num = 2
 
 battle_setup_ember = {
     {'w',500},

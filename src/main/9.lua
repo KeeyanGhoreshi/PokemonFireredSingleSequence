@@ -1,6 +1,8 @@
 package.path = "./main/?.lua;"
 movement = loadfile('movement.lua')
 m = movement()
+local num = 9
+
 press_b = {
     {'b', 60}
 }
