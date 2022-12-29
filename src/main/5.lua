@@ -43,7 +43,7 @@ use_move = {
     {'b', 100},
 }
 
-a = {
+start5 = {
     {'w', 204}, -- leave celadon gym
     {'d', 15},
     --mapChange
@@ -3029,7 +3029,7 @@ c = {
 }
 
 
-m.executeOrders(a)    
+m.executeOrders(start5)    
 local info = debug.getinfo(1, "S")
 local folderName = info.what
 local nextScript = num + 1 

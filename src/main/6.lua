@@ -37,7 +37,7 @@ use_move = {
     {'b', 100},
 }
 
-a = {
+start6 = {
     -- saffron-2
     {'w', 180}, -- classic buffer wait
     {'d', 3}, -- leave saffron
@@ -1090,7 +1090,7 @@ b = {
 
 }
 
-m.executeOrders(a)
+m.executeOrders(start6)
 local info = debug.getinfo(1, "S")
 local folderName = info.what
 local nextScript = num + 1 

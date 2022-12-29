@@ -452,7 +452,7 @@ attack_down_ember = { -- for first battle with anthony
 }
 
 
-a = {
+start1 ={
     {'w', 350}, -- start the rom
     {'a', 15},
     {'w', 350},
@@ -2300,7 +2300,7 @@ a = {
     {'w', 240},
 }
 
-m.executeOrders(a)
+m.executeOrders(start1)
 local info = debug.getinfo(1, "S")
 local folderName = info.what
 local nextScript = num + 1 

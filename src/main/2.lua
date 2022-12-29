@@ -125,7 +125,7 @@ pokecenter_heal = {
     {'b', 60}, -- end heal
 }
 
-a = {
+start2 = {
     {'d', 7}, -- exit pokecenter
     {'w', 240},
     {'d', 4},
@@ -1351,7 +1351,7 @@ a = {
 
 }
 
-m.executeOrders(a)
+m.executeOrders(start2)
 local info = debug.getinfo(1, "S")
 local folderName = info.what
 local nextScript = num + 1 

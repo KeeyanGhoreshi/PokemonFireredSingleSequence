@@ -87,7 +87,7 @@ switch_jolt = {
     {'press_b', 6},
 }
 
-a = {
+start9 = {
     {'w', 90},
     {'switch_jolt'},
     {'l', 6}, -- go to route 22
@@ -1610,7 +1610,7 @@ e2 = {
 }
 
 
-m.executeOrders(a)
+m.executeOrders(start9)
 
 
 local info = debug.getinfo(1, "S")

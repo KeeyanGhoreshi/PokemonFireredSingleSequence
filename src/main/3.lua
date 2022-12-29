@@ -165,7 +165,7 @@ press_b = {
 }
 
 
-a = {
+start3 = {
 {'w', 144},
 {'l', 14},
 {'d', 10},
@@ -718,7 +718,6 @@ a = {
 {'a', 17},
 {'w', 34},
 {'a', 19},
-
 {'w', 251},
 {'u', 5},
 {'w', 123},
@@ -1173,7 +1172,7 @@ a = {
 }
 
 
-m.executeOrders(a)
+m.executeOrders(start3)
 local info = debug.getinfo(1, "S")
 local folderName = info.what
 local nextScript = num + 1 

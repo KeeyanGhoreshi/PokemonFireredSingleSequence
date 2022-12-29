@@ -34,7 +34,7 @@ use_move = {
     {'b', 100},
 }
 
-a = {
+start4 = {
     {'r', 9}, -- walk out of verm
     --mapChange
     {'u', 21},
@@ -829,7 +829,7 @@ a = {
     
 }
 
-m.executeOrders(a)
+m.executeOrders(start4)
 local info = debug.getinfo(1, "S")
 local folderName = info.what
 local nextScript = num + 1 

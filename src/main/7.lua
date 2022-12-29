@@ -45,7 +45,7 @@ use_move = {
     {'b', 100},
 }
 
-a = {
+start7 = {
     {'w', 230}, 
     {'l', 4}, -- go to water route
     {'d', 3},
@@ -1152,7 +1152,7 @@ c = {
    
 }
 
-m.executeOrders(a)
+m.executeOrders(start7)
 local info = debug.getinfo(1, "S")
 local folderName = info.what
 local nextScript = num + 1 

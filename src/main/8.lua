@@ -50,7 +50,7 @@ use_move = {
     {'b', 100},
 }
 
-a = {
+start8 = {
     {'w', 90},
     {'r', 8},
     {'u', 8},
@@ -953,7 +953,7 @@ a = {
 -- viridian-2
 }
 
-m.executeOrders(a)
+m.executeOrders(start8)
 local info = debug.getinfo(1, "S")
 local folderName = info.what
 local nextScript = num + 1 
