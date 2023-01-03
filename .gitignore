@@ -1,0 +1,2 @@
+# Ignores the auto save states.
+src/main/States/*.State

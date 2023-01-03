@@ -1,7 +1,8 @@
-console.clear()
+-- ~44 Hours@60fps
 package.path = "./main/?.lua;"
 movement = loadfile('movement.lua')
 m = movement()
+local num = 1
 
 press_a = {
     {'a', 60},
@@ -452,7 +453,7 @@ attack_down_ember = { -- for first battle with anthony
 }
 
 
-a = {
+start1 ={
     {'w', 350}, -- start the rom
     {'a', 15},
     {'w', 350},
@@ -2300,4 +2301,9 @@ a = {
     {'w', 240},
 }
 
-m.executeOrders(a)
+m.executeOrders(start1)
+local info = debug.getinfo(1, "S")
+local folderName = info.what
+local nextScript = num + 1 
+savestate.save(string.format("./States/Gym%dFinished.State", num))
+print(string.format("You beat Brock! Making savestate: '%s/States/Gym%dFinished.State'. To continue from here load the state and run %d.lua.", folderName, num, nextScript))

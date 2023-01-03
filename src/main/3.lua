@@ -1,6 +1,9 @@
+-- ~2.5 Hours@60fps
 package.path = "./main/?.lua;"
 movement = loadfile('movement.lua')
 m = movement()
+local num = 3
+
 use_move = {
     {'a', 15},
     {'a', 15},
@@ -163,8 +166,8 @@ press_b = {
 }
 
 
-a = {
-{'w', 144},
+start3 = {
+{'w', 200},
 {'l', 14},
 {'d', 10},
 {'l', 12},
@@ -716,7 +719,6 @@ a = {
 {'a', 17},
 {'w', 34},
 {'a', 19},
-
 {'w', 251},
 {'u', 5},
 {'w', 123},
@@ -1171,4 +1173,9 @@ a = {
 }
 
 
-m.executeOrders(a)
+m.executeOrders(start3)
+local info = debug.getinfo(1, "S")
+local folderName = info.what
+local nextScript = num + 1 
+savestate.save(string.format("./States/Gym%dFinished.State", num))
+print(string.format("You beat Lt. Surge! Making savestate: '%s/States/Gym%dFinished.State'. To continue from here load the state and run %d.lua.", folderName, num, nextScript))

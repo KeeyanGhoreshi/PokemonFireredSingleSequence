@@ -1,6 +1,8 @@
+-- ~17 Hours@60fps
 package.path = "./main/?.lua;"
 movement = loadfile('movement.lua')
 m = movement()
+local num = 2
 
 battle_setup_ember = {
     {'w',500},
@@ -124,7 +126,7 @@ pokecenter_heal = {
     {'b', 60}, -- end heal
 }
 
-a = {
+start2 = {
     {'d', 7}, -- exit pokecenter
     {'w', 240},
     {'d', 4},
@@ -1350,4 +1352,9 @@ a = {
 
 }
 
-m.executeOrders(a)
+m.executeOrders(start2)
+local info = debug.getinfo(1, "S")
+local folderName = info.what
+local nextScript = num + 1 
+savestate.save(string.format("./States/Gym%dFinished.State", num))
+print(string.format("You beat Misty! Making savestate: '%s/States/Gym%dFinished.State'. To continue from here load the state and run %d.lua.", folderName, num, nextScript))
