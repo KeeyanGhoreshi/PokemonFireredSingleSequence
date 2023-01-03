@@ -1,3 +1,4 @@
+-- ~17 Hours@60fps
 package.path = "./main/?.lua;"
 movement = loadfile('movement.lua')
 m = movement()
