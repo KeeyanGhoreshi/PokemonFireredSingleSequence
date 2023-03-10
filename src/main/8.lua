@@ -1,7 +1,8 @@
-console.clear()
+-- ~8 Hours@60fps
 package.path = "./main/?.lua;"
 movement = loadfile('movement.lua')
 m = movement()
+local num = 8
 
 press_b = {
     {'b', 60}
@@ -50,7 +51,7 @@ use_move = {
     {'b', 100},
 }
 
-a = {
+start8 = {
     {'w', 90},
     {'r', 8},
     {'u', 8},
@@ -953,4 +954,9 @@ a = {
 -- viridian-2
 }
 
-m.executeOrders(a)
+m.executeOrders(start8)
+local info = debug.getinfo(1, "S")
+local folderName = info.what
+local nextScript = num + 1 
+savestate.save(string.format("./States/Gym%dFinished.State", num))
+print(string.format("You beat Giovanni! Making savestate: '%s/States/Gym%dFinished.State'. To continue from here load the state and run %d.lua.", folderName, num, nextScript))

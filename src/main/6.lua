@@ -1,7 +1,8 @@
-console.clear()
+-- ~40mins@60fps
 package.path = "./main/?.lua;"
 movement = loadfile('movement.lua')
 m = movement()
+local num = 6
 
 press_b = {
     {'b', 60}
@@ -37,7 +38,7 @@ use_move = {
     {'b', 100},
 }
 
-a = {
+start6 = {
     -- saffron-2
     {'w', 180}, -- classic buffer wait
     {'d', 3}, -- leave saffron
@@ -1090,4 +1091,10 @@ b = {
 
 }
 
-m.executeOrders(a)
+m.executeOrders(start6)
+
+local info = debug.getinfo(1, "S")
+local folderName = info.what
+local nextScript = num + 1 
+savestate.save(string.format("./States/Gym%dFinished.State", num))
+print(string.format("You beat Koga! Making savestate: '%s/States/Gym%dFinished.State'. To continue from here load the state and run %d.lua.", folderName, num, nextScript))

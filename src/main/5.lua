@@ -1,7 +1,9 @@
-console.clear()
+-- ~26.5 Hours@60fps
 package.path = "./main/?.lua;"
 movement = loadfile('movement.lua')
 m = movement()
+local num = 5
+
 press_b = {
     {'b', 60}
 }
@@ -42,7 +44,7 @@ use_move = {
     {'b', 100},
 }
 
-a = {
+start5 = {
     {'w', 204}, -- leave celadon gym
     {'d', 15},
     --mapChange
@@ -3028,4 +3030,9 @@ c = {
 }
 
 
-m.executeOrders(a)    
+m.executeOrders(start5)  
+local info = debug.getinfo(1, "S")
+local folderName = info.what
+local nextScript = num + 1 
+savestate.save(string.format("./States/Gym%dFinished.State", num))
+print(string.format("You beat Sabrina! Making savestate: '%s/States/Gym%dFinished.State'. To continue from here load the state and run %d.lua.", folderName, num, nextScript))
